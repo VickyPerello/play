@@ -2,7 +2,7 @@ public class Play {
 
     public static void main(String [ ] args)
     {
-        Problem1.problem1();
+        Problem4.problem4();
 
     }
 
