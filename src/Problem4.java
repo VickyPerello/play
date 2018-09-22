@@ -4,29 +4,39 @@ import java.util.List;
 public class Problem4 {
 
     static public void problem4() {
-        //Largest prime factor
-        //Problem 3
-        //The prime factors of 13195 are 5, 7, 13 and 29.
+        //Largest palindrome product
+        //Problem 4
+        //A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
         //
-        //What is the largest prime factor of the number 600851475143 ?
+        //Find the largest palindrome made from the product of two 3-digit numbers.
 
-        List<Long> primesFactors = new ArrayList<>();
-        long number = 600851475143L;
-        while (number > 1) {
-            boolean hasToContinue = true;
-            long divisor = 2;
-            while (hasToContinue) {
-                if (number%divisor == 0){
-                    number = number/divisor;
-                    primesFactors.add(divisor);
-                    hasToContinue = false;
-                } else {
-                    divisor++;
+        long max = 0;
+
+        for (int i=999; i>99; i--) {
+            if (max < i*999) {
+                for (int j=999; j>99; j--) {
+                    long product = i*j;
+                    String productString = Long.toString(product);
+                    if (isPalindromicNumber(productString) && product > max) {
+                        max = product;
+                    }
+
                 }
             }
         }
 
-        System.out.print(primesFactors.get(primesFactors.size()-1));
+        System.out.print(max);
+
+
+    }
+
+    static boolean isPalindromicNumber(String number) {
+        for (int i=0; i<number.length()/2; i++) {
+            if (number.charAt(i) != number.charAt(number.length()-1-i)) {
+                return false;
+            }
+        }
+        return true;
 
     }
 
