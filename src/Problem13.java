@@ -235,7 +235,7 @@ public class Problem13 {
 
         String beforeString = Integer.toString(before);
         int digits = 10 - beforeString.length();
-        
+
         System.out.print(beforeString);
         for (int i=0; i<digits; i++) {
             System.out.print(result.get(result.size()-1-i));
